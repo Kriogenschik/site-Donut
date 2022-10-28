@@ -1,0 +1,552 @@
+@use './adaptive';
+@import url(../css/NullStyle.css);
+@font-face {
+   font-family: "Big John";
+   src: url(../fonts/BIG\ JOHN.otf);
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic);
+
+
+body{
+   height: 100%;
+}
+.wrapper {
+   min-height: 100%;
+}
+.page {
+   position:fixed;
+   top: 0;left: 0;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+		&__wrapper {
+         display: flex;
+         flex-direction: column;
+         width: 100%;
+         height: 100%;
+		}
+		&__screen {
+         flex: 1 0 100%;
+         position: relative;
+		}
+}
+.cont {
+   max-width: 1530px;
+   margin: 0 auto;
+   padding: 0 10px;
+}
+.title{
+   display: inline-block;
+   font-family: 'BIG JOHN';
+   @include adaptive.adaptive-value("font-size", 76, 10, 1);
+   color: black;
+   position: relative;
+   &::after,
+   &::before{
+      content: '';
+      position: absolute;
+      background-color: black;
+      width: 96%;
+      height: 4px;
+   }
+   &::after{
+      top: 130%;
+      left: 0;
+   }
+   &::before{
+      top: 155%;
+      left: 8%;
+   }
+}
+.text{
+   font-family: 'open sans';
+   @include adaptive.adaptive-value("font-size", 18, 10, 1);
+   font-weight: 300;
+   line-height: 1.5;
+}
+.textblock{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   @include adaptive.adaptive-value("padding-top", 50, 10, 1);
+   @include adaptive.adaptive-value("padding-bottom", 50, 10, 1);
+   @include adaptive.adaptive-value("padding-left", 100, 20, 1);
+   @include adaptive.adaptive-value("padding-right", 100, 20, 1);
+   @include adaptive.adaptive-value("gap", 100, 20, 1);
+}
+.textblock-title{
+   text-align: center;
+   flex: 1 1 50%;
+}
+.button {
+   font-family: 'BIG JOHN';
+   @include adaptive.adaptive-value("font-size", 18, 12, 1);
+   color: black;
+   @include adaptive.adaptive-value("padding-top", 18, 10, 1);
+   @include adaptive.adaptive-value("padding-bottom", 18, 10, 1);
+   @include adaptive.adaptive-value("padding-left", 25, 13, 1);
+   @include adaptive.adaptive-value("padding-right", 25, 13, 1);
+   border: 4px solid black;
+   border-radius: 15px;
+   text-transform: uppercase;
+   position: relative;
+   z-index: 3;
+   transition-duration: 0.3s;
+   &::before,
+   &::after{
+      content: '';
+      position: absolute;
+      background-color: black;
+      height: 5px;
+      width:195%;
+      z-index: -1;
+      transition-duration: 0.5s;
+   }
+   &::before{
+      top: 38%;
+      left: -60%;
+   }
+   &::after{
+      top: 60%;
+      left: -40%;
+   }
+}
+.button:hover{
+   &::before{
+      left: -40%;
+   }
+   &::after{
+      left: -60%;
+   }
+}
+.screen1 {
+   background-color: #fed600;
+   width: 100%;
+   z-index: -1;
+   &__main {
+      position: relative;
+   }
+}
+.main {
+   padding: 0 10px;
+   &__img {
+      position: absolute;
+      top: 0;left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
+   }
+   &__img-1 {
+      position: absolute;
+      height: 81%;
+      width: 50%;
+      top: 0;left: 0;
+      object-fit: cover;
+      
+   }
+   &__img-2 {
+      position: absolute;
+      height: 81%;
+      width: 50%;
+      top: 0;right: 0;
+      object-fit: cover;
+   }
+   &__menu {
+      z-index: 10;
+      @include adaptive.adaptive-value("margin-top", 35, 10, 1);
+      display: flex;
+      align-items: center;
+      @include adaptive.adaptive-value("gap", 40, 20, 1);
+   }
+   &__menu-items {
+      font-family: 'BIG JOHN';
+      color: black;
+      @include adaptive.adaptive-value("padding-top", 20, 10, 1);
+      @include adaptive.adaptive-value("padding-bottom", 20, 10, 1);
+      @include adaptive.adaptive-value("padding-left", 30, 15, 1);
+      @include adaptive.adaptive-value("padding-right", 30, 15, 1);
+      @include adaptive.adaptive-value("font-size", 18, 14, 1);
+      transition-duration: 0.3s;
+      border-radius: 20px;
+      &:hover{
+         color: #fed600;
+         background-color: black;
+      }
+   }
+   &__content {
+      z-index: 3;
+      @include adaptive.adaptive-value("max-width", 745, 500, 1);
+      margin: 0 auto;
+      margin-top:10vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include adaptive.adaptive-value("gap", 85, 20, 1);
+   }
+   &__title {
+      text-align: center;
+      font-family: 'BIG JOHN';
+      @include adaptive.adaptive-value("font-size", 60, 30, 1);
+   }
+   &__icon {
+      position: relative;
+      @include adaptive.adaptive-value("width", 330, 150, 1);
+      @include adaptive.adaptive-value("height", 135, 70, 1);
+   }
+   &__icon::before,
+   &__icon::after{
+      content: '';
+      position: absolute;
+      background-color: black;
+      height: 5px;
+      @include adaptive.adaptive-value("width", 480, 200, 1);
+      z-index: 1;
+   }
+   &__icon::before{
+      top: 6%;
+      left: -28%;
+   }
+   &__icon::after{
+      top: 16%;
+      left: -18%;
+   }
+   &__icon-img {
+      position: absolute;
+      top: 0;left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+   }
+   &__button-item {
+      background-color: #fad663;
+      &:hover{
+         color: #fed600;
+         background-color: black;
+      }
+   }
+}
+.screen2 {
+   background-color: #fef9fd;
+   width: 100%;
+   z-index: -1;
+}
+.what {
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   padding: 10px;
+   @include adaptive.adaptive-value("gap", 130, 10, 1);
+   &__textblock-text {
+      flex: 1 1 50%;
+   }
+   &__cards {
+      display: flex;
+      @include adaptive.adaptive-value("gap", 75, 10, 1);
+      padding: 0 10%;
+   }
+}
+.card {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   @include adaptive.adaptive-value("gap", 25, 10, 1);
+   text-align: center;
+   &__icon {
+      position: relative;
+      @include adaptive.adaptive-value("width", 200, 70, 1);
+      @include adaptive.adaptive-value("height", 190, 70, 1);
+      &::before,
+      &::after{
+         content: '';
+         position: absolute;
+         background-color: black;
+         width: 4px;
+         height: 13%;
+         left: 50%;
+         transform: translateX(-50%);
+      }
+      &::before{
+         bottom: -5%;
+      }
+      &::after{
+         bottom: 15%;
+      }
+   }
+   &__icon-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: -30%;left: 0;
+      object-fit: contain;
+   }
+   &__title {
+      font-family: 'BIG JOHN';
+      @include adaptive.adaptive-value("font-size", 18, 12, 1);
+   }
+   &__text {
+      @include adaptive.adaptive-value("font-size", 15, 10, 1);
+      font-family: 'open sans';
+   }
+}
+
+.screen {
+   position: relative;
+   
+
+   &__works {
+      padding-top:5%;
+      
+   }
+
+   &__works-title {
+      position: relative;
+      left: 55%;
+      @include adaptive.adaptive-value("margin-bottom", 90, 10, 1);
+   }
+   &__works-gallery {
+      display: flex;
+      width: 100vw;
+      height: 47vh;
+   }
+   &__works-button{
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      
+   }
+}
+.works-button{
+   z-index: 2;
+   background-color: white;
+   &:hover{
+      color: white;
+      background-color: black;
+   }
+}
+.gallery {
+   &__item {
+      flex: 0 0 25%;
+      position: relative;
+      width: 100%;
+      height: 100%;
+   }
+   &__item-img {
+      position: absolute;
+      top: 0;left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+}
+
+.about {
+   &__textblock-text {
+      flex: 1 1 50%;
+   }
+   &__cards {
+      display: flex;
+      @include adaptive.adaptive-value("gap", 75, 10, 1);
+      padding: 0 10%;
+      margin-top: 14vh;
+   }
+}
+.card {
+   &__icon {
+      &::before,
+      &::after{
+         display: none;
+      }
+   }
+   &__icon-img {
+      top: 0;
+   }
+   &__title-num {
+      @include adaptive.adaptive-value("font-size", 48, 20, 1);
+   }
+
+   &__title-item {
+      @include adaptive.adaptive-value("font-size", 18, 12, 1);
+   }
+}
+
+.screen-contact {
+background-color: #d2eae3;
+}
+.screen {
+   &__container{
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      justify-content: space-between;
+   }
+   &__column {
+      display: flex;
+      @include adaptive.adaptive-value("gap", 50, 10, 1);
+   }
+}
+.contacts {
+   &__inputs {
+      flex: 1 1 50%;
+   }
+   &__contacts {
+      flex: 1 1 50%;
+      display: flex;
+      flex-direction: column;
+      @include adaptive.adaptive-value("gap", 100, 50, 1);
+   }
+   &__contacts-title {
+      margin-top: 5%;
+   }
+   &__contacts-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+   }
+   &__other {
+      display: flex;
+      gap: 20px;
+   }
+   &__contacts-social{
+      display: flex;
+      @include adaptive.adaptive-value("gap", 50, 20, 1);
+   }
+   &__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @include adaptive.adaptive-value("padding-bottom", 45, 10, 1);
+   }
+}
+.inputs {
+   display: flex;
+   flex-direction: column;
+   margin-top: 5%;
+   width: 100%;
+   @include adaptive.adaptive-value("gap", 30, 0, 1);
+   &__label {
+      font-family: 'BIG JOHN';
+      @include adaptive.adaptive-value("font-size", 18, 12, 1);
+      display: block;
+      line-height: 2;
+   }
+   &__item {
+      font-family: 'BIG JOHN';
+      padding: 10px;
+      width: 90%;
+      @include adaptive.adaptive-value("font-size", 18, 12, 1);
+      background-color: #fad663;
+      border: 4px solid black;
+      border-radius: 10px;
+   }
+   &__message {
+      @include adaptive.adaptive-value("margin-bottom", 60, 10, 1);
+   }
+   &__button {
+      position: relative;
+      z-index: 5;
+      margin: 0 auto;
+   }
+}
+.input-button{
+   position: relative;
+   background-color: #fad663;
+   z-index: 3;
+   &:hover{
+      background-color: black;
+      color: #fad663;
+   }
+}
+.textarea{
+   resize: none;
+}
+.social {
+   &__refs {
+      display: inline-block;
+      position: relative;
+      @include adaptive.adaptive-value("width", 75, 50, 1);
+      @include adaptive.adaptive-value("height", 75, 50, 1);
+   }
+   &__img {
+      position: absolute;
+      top: 0;left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+}
+.contacts-name {
+   font-family: 'BIG JOHN';
+   @include adaptive.adaptive-value("font-size", 18, 12, 1);
+   margin-bottom: 10px;
+}
+.contacts-text {
+   font-family: 'open sans';
+   @include adaptive.adaptive-value("font-size", 16, 10, 1);
+}
+.footer {
+   font-family: 'BIG JOHN';
+   margin: 0 10px 10px 10px;
+   &__copyright {
+      
+      @include adaptive.adaptive-value("font-size", 18, 12, 1);
+   }
+
+   &__menu {
+      display: flex;
+      @include adaptive.adaptive-value("gap", 45, 5, 1);
+   }
+
+   &__menu-items {
+      color: black;
+      @include adaptive.adaptive-value("padding-top", 20, 10, 1);
+      @include adaptive.adaptive-value("padding-bottom", 20, 10, 1);
+      @include adaptive.adaptive-value("padding-left", 30, 15, 1);
+      @include adaptive.adaptive-value("padding-right", 30, 15, 1);
+      @include adaptive.adaptive-value("font-size", 18, 12, 1);
+      transition-duration: 0.3s;
+      border-radius: 20px;
+      &:hover{
+         color: #d2eae3;
+         background-color: black;
+   }}
+}
+
+
+.page__pagination{
+   position: absolute;
+   bottom: 0%;
+   right: 50%;
+   display: flex;
+   flex-direction: column;
+   z-index: 10;
+}
+.page__bullet{
+   width: 4px;
+   height: 25px;
+   background-color: black;
+   cursor: pointer;
+   margin: 15px 0;
+   transition-duration: 0.5s;
+}
+.marker{
+   position: absolute;
+   width: 20px;
+   height: 200px;
+   top: 50%;left: 50%;
+}
+.marker-cont{
+   position: relative;
+   width: 100%;
+   height: 100%;
+}
+.marker-item{
+   width: 16px;
+   height: 33px;
+   position: absolute;
+   top: 4%;left: -6px;
+   border: 3px solid black;
+   border-radius: 6px;
+   transition-duration: 0.5s;
+}
